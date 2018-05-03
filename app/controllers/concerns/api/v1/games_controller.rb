@@ -1,4 +1,4 @@
-class API::V1::GamesController < ApplicationController
+class Api::V1::GamesController < ApplicationController
 
   def index
     games = Game.all
