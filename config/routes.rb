@@ -5,10 +5,10 @@ Rails.application.routes.draw do
       resources :users
       resources :games
       resources :scores
+      get '/games/:game_id/join', to: 'games#join'
     end
   end
 
-  get '/api/v1/games/:game_id/join', to: 'games#join'
 
   mount ActionCable.server => '/cable'
 end

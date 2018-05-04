@@ -7,6 +7,7 @@ class Api::V1::GamesController < ApplicationController
 
   def create
     game = Game.create()
+    render json: game
   end
 
   def join
