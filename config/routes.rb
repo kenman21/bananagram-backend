@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       resources :scores
     end
   end
+
+  mount ActionCable.server => '/cable'
 end
