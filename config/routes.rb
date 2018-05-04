@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
 
   get '/games/:game_id/join', to: 'games#join'
+
+  mount ActionCable.server => '/cable'
 end
