@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/games/:game_id/join', to: 'games#join'
+  get '/api/v1/games/:game_id/join', to: 'games#join'
 
   mount ActionCable.server => '/cable'
 end
