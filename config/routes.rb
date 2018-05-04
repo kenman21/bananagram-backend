@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       resources :scores
     end
   end
+
+  get '/games/:game_id/join', to: 'games#join'
 end

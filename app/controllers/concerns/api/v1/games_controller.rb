@@ -9,4 +9,9 @@ class Api::V1::GamesController < ApplicationController
     game = Game.create()
   end
 
+  def join
+    game = Game.find(params[:game_id])
+    render json: game
+  end
+
 end
