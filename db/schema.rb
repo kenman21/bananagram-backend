@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503185244) do
+ActiveRecord::Schema.define(version: 20180504190407) do
 
   create_table "games", force: :cascade do |t|
+  end
+
+  create_table "letters", force: :cascade do |t|
+    t.string "value"
+    t.integer "game_id"
   end
 
   create_table "matches", force: :cascade do |t|
