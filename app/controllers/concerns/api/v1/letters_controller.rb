@@ -1,9 +1,15 @@
 class Api::V1::LettersController < ApplicationController
 
   def destroy
-    letter = Letter.find(params[:id])
+    letter = Letter.find(params[:letter_id])
     letter.destroy()
-    render json: letter
+    game = Game.find(params["game_id"])
+
+    GameChannel.broadcast_to(game, {
+        type: "DELETE_LETTER",
+        payload: {letter_id: params["letter_id"]}
+      })
+
   end
 
   def show

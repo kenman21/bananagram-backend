@@ -8,7 +8,6 @@ class Api::V1::GamesController < ApplicationController
   def create
     game = Game.create()
     game.create_letters()
-    game.shuffled_letters=game.letters.shuffle
     render json: game
   end
 
@@ -19,7 +18,27 @@ class Api::V1::GamesController < ApplicationController
 
   def join
     game = Game.find(params[:game_id])
-    render json: game
+    render json: prepare_game(game, true)
   end
+
+  private
+
+  def prepare_game(game, with_letters = false)
+		game_hash = {
+			id: game.id
+		}
+		if with_letters
+			game_hash[:letters] = game.letters.map {|letter| prepare_letter(letter)}
+		end
+		game_hash
+
+	end
+
+  def prepare_letter(letter)
+		letter_hash = {
+			id: letter.id,
+			value: letter.value,
+		}
+	end
 
 end
