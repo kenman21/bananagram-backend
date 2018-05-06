@@ -14,7 +14,6 @@ class Api::V1::GamesController < ApplicationController
 
   def letters
     game = Game.find(params[:game_id])
-    byebug
     render json: game.letters
   end
 
