@@ -5,8 +5,7 @@ class Game < ApplicationRecord
   has_one :score
   has_many :letters
 
-
-
+  attr_accessor :shuffled_letters
 
   def create_letters
     letters = {
