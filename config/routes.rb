@@ -6,8 +6,8 @@ Rails.application.routes.draw do
       resources :games
       resources :scores
       resources :letters
-      get '/games/:game_id/join', to: 'games#join'
-      get '/games/:game_id/letters', to: 'games#letters'
+      post '/games/:game_id/join', to: 'games#join'
+      get '/games/:game_id/peel', to: 'games#peel'
     end
   end
 

@@ -6,7 +6,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by(name: user_params[:name])y
+    user = User.find_or_create_by(name: user_params[:name])
+    render json: user
   end
 
   private

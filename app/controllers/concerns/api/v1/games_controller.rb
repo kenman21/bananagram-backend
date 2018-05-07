@@ -11,14 +11,19 @@ class Api::V1::GamesController < ApplicationController
     render json: game
   end
 
-  def letters
-    game = Game.find(params[:game_id])
-    render json: game.letters
-  end
-
   def join
     game = Game.find(params[:game_id])
+    match = Match.create({game_id: params[:game_id], user_id: params[:user_id]})
     render json: prepare_game(game, true)
+  end
+
+  def peel
+    game = Game.find(params[:game_id])
+    byebug
+    GameChannel.broadcast_to(game, {
+        type: "PEEL_LETTER",
+        payload: {users_letters: game.peel}
+      })
   end
 
   private
@@ -40,5 +45,6 @@ class Api::V1::GamesController < ApplicationController
 			value: letter.value,
 		}
 	end
+
 
 end

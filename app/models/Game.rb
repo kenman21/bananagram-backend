@@ -47,4 +47,18 @@ class Game < ApplicationRecord
     end
   end
 
+  def peel
+    users_to_letters_map = {}
+
+    self.users.each do |user|
+      letter = self.letters[rand(self.letters.length)]
+      users_to_letters_map[user.id] = letter
+      letter.destroy()
+    end
+
+    users_to_letters_map
+  end
+
+
+
 end
