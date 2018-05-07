@@ -30,7 +30,7 @@ class Api::V1::GamesController < ApplicationController
     user = params[:user]
     GameChannel.broadcast_to(game, {
         type: "WINNER",
-        payload: {winner: user[:name}}
+        payload: {winner: user[:name]}
       })
   end
 
