@@ -19,10 +19,18 @@ class Api::V1::GamesController < ApplicationController
 
   def peel
     game = Game.find(params[:game_id])
-    byebug
     GameChannel.broadcast_to(game, {
         type: "PEEL_LETTER",
         payload: {users_letters: game.peel}
+      })
+  end
+
+  def winner
+    game = Game.find(params[:game_id])
+    user = params[:user]
+    GameChannel.broadcast_to(game, {
+        type: "WINNER",
+        payload: {winner: user.name}
       })
   end
 

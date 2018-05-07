@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :letters
       post '/games/:game_id/join', to: 'games#join'
       get '/games/:game_id/peel', to: 'games#peel'
+      post '/games/:game_id/winner', to: 'games#winner'
     end
   end
 
