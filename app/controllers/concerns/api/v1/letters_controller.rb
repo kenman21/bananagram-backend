@@ -1,3 +1,4 @@
+
 class Api::V1::LettersController < ApplicationController
 
   def destroy
@@ -15,6 +16,17 @@ class Api::V1::LettersController < ApplicationController
   def show
     letter = Letter.find(params[:id])
     render json: letter
+  end
+
+  def check
+    words = params[:words]
+    object = {}
+    words.each do |word|
+      if !Dictionary.words.include?(word)
+        object[word] = false
+      end
+    end
+    render json: object
   end
 
   # private
