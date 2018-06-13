@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       post '/games/:game_id/join', to: 'games#join'
       get '/games/:game_id/peel', to: 'games#peel'
       post '/games/:game_id/winner', to: 'games#winner'
+      post '/users/register', to: 'users#register'
+      post '/users/login', to: 'users#login'
     end
   end
 
