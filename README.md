@@ -34,4 +34,4 @@ Sinclair Kinch - s-kinch
 Kenneth Lehr  - kenman21
 
 Acknowledgements
-This is a pair programming assignment at the Flatiron School. Thanks to instructors Stephen, Tashawn, and Graham for their help along the way.
+This is a pair programming assignment at the Flatiron School. Thanks to instructors Steven, Tashawn, and Graham for their help along the way.
